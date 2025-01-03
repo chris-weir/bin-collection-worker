@@ -15,16 +15,16 @@ export default {
 
             const attributes = data.features[0].attributes;
             const binCollectionData = {
-                blue: new Date(attributes.BLUE_DATE).toDateString(),
-                purple: new Date(attributes.PURPLE_DATE).toDateString(),
-                grey: new Date(attributes.GREY_DATE).toDateString(),
+                Blue: new Date(attributes.BLUE_DATE).toDateString(),
+                Purple: new Date(attributes.PURPLE_DATE).toDateString(),
+                Grey: new Date(attributes.GREY_DATE).toDateString(),
             };
 
             let nextBinCollection = null;
             nextBinCollection = Object.keys(binCollectionData).sort((a, b) => a < b)[0]
 
             return {
-                next: nextBinCollection,
+                Next: nextBinCollection,
                 ...binCollectionData
             };
         } catch (error) {
