@@ -21,7 +21,7 @@ export default {
             };
 
             let nextBinCollection = null;
-            nextBinCollection = Object.keys(binCollectionData).sort((a, b) => a < b)[0]
+            nextBinCollection = Object.keys(binCollectionData).sort((a, b) => a > b)[0]
 
             return {
                 Next: nextBinCollection,
