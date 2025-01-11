@@ -15,16 +15,27 @@ export default {
 
             const attributes = data.features[0].attributes;
             const binCollectionData = {
-                Blue: new Date(attributes.BLUE_DATE).toDateString(),
-                Purple: new Date(attributes.PURPLE_DATE).toDateString(),
-                Grey: new Date(attributes.GREY_DATE).toDateString(),
+                Blue: new Date(attributes.BLUE_DATE),
+                Purple: new Date(attributes.PURPLE_DATE),
+                Grey: new Date(attributes.GREY_DATE),
             };
 
+            let sortedArray = []
+            Object.keys(binCollectionData).forEach(item => sortedArray.push(item))
+            sortedArray = sortedArray.sort(function(a,b) {
+                console.log(a,b, a>b)
+                a > b
+            })
+
+            console.log(sortedArray)
+
             let nextBinCollection = null;
-            nextBinCollection = Object.keys(binCollectionData).sort((a, b) => a > b)[0]
+            nextBinCollection = Object.values(binCollectionData).sort()[0];
+
+            let next = Object.keys(binCollectionData).filter(key => binCollectionData[key] === nextBinCollection)[0];            
 
             return {
-                Next: nextBinCollection,
+                Next: next,
                 ...binCollectionData
             };
         } catch (error) {
